@@ -1,6 +1,6 @@
 package unlam.edu.ar.pb2;
 
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Fondeadero{
@@ -9,7 +9,7 @@ public class Fondeadero{
 	private Integer cantidadDeAmarres;
 	
 	public Fondeadero(Integer amarres) {
-		this.yates = new LinkedHashSet<Yate>();
+		this.yates = new HashSet<Yate>();
 		this.cantidadDeAmarres = amarres;
 	}
 	
