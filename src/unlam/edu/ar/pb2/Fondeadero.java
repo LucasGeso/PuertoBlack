@@ -1,15 +1,15 @@
 package unlam.edu.ar.pb2;
 
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-public class Fondeadero extends Object {
+public class Fondeadero{
 	
-	private ArrayList<Yate> yates;
+	private Set<Yate> yates;
 	private Integer cantidadDeAmarres;
 	
 	public Fondeadero(Integer amarres) {
-		super();
-		this.yates = new ArrayList<Yate>();
+		this.yates = new LinkedHashSet<Yate>();
 		this.cantidadDeAmarres = amarres;
 	}
 	
@@ -18,42 +18,38 @@ public class Fondeadero extends Object {
 	}
 	
 	public boolean amarrarYate(Yate yate) {
-		if(this.yates.size()<this.cantidadDeAmarres) {
+		if(this.yates.size()<this.cantidadDeAmarres && !this.yates.contains(yate)) {
 			this.yates.add(yate);
 			return true;
 		}
 		return false;
+		
 	}
 	
 	public boolean desamarrarYate(Yate yate) {
-		if(yates.contains(yate)) {
-			yates.remove(yate);
-			return true;
-		}
-		
-		return false;
+		return yates.remove(yate);
 	}
-	
 	
 	public Integer cantidadDeYatesAmarrados() {
 		return this.yates.size();
 	}
 	
-	
 	public Integer cantidadDeAmarresDisponibles() {
 		return this.cantidadDeAmarres - this.yates.size();
 	}
 	
-	
 	public Integer calcularImporteDeTodosLosAmarres() {
 		Integer importeTotal = 0;
 		
-		for(int i=0; i<this.yates.size(); i++) {
-			importeTotal += yates.get(i).costoDeAmarrePorMes();
+		for(Yate yate : yates) {
+			importeTotal+= yate.costoDeAmarrePorMes();
 		}
+		/*Iterator<Yate> iterador;
+		iterador = yates.iterator();
 		
+		if(iterador.hasNext()) {
+			importeTotal += iterador.next().costoDeAmarrePorMes();
+		}*/
 		return importeTotal;
 	}
-	
-
 }
