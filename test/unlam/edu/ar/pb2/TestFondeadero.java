@@ -2,6 +2,9 @@ package unlam.edu.ar.pb2;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -70,6 +73,18 @@ class TestFondeadero {
 		puerto.amarrarYate(yate1);
 		puerto.amarrarYate(yate2);
 		assertEquals(Integer.valueOf(24000), puerto.calcularImporteDeTodosLosAmarres());	
+	}
+	
+	@Test
+	void queElFondaderoEsteOrdenadoPorElPrecioDeAmarre() {
+		puerto.amarrarYate(yate1);
+		puerto.amarrarYate(yate2);
+		
+		Set<Yate> pruebaOrden = new LinkedHashSet<Yate>();
+		pruebaOrden.add(yate2); //11000
+		pruebaOrden.add(yate1); //13000
+		
+		assertEquals(puerto.getYates(),pruebaOrden);
 	}
 	
 }

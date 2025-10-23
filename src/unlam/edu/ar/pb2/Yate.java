@@ -2,7 +2,7 @@ package unlam.edu.ar.pb2;
 
 import java.util.Objects;
 
-abstract class Yate {
+abstract class Yate implements Comparable<Yate> {
 	
 	private String nombre;
 	private String nombreDuenio;
@@ -54,10 +54,9 @@ abstract class Yate {
 				&& Objects.equals(nombreDuenio, other.nombreDuenio) && Objects.equals(peso, other.peso)
 				&& Objects.equals(tripulacion, other.tripulacion);
 	}
-	
-	
 
-
+	public int compareTo(Yate nuevo) {
+		return this.costoDeAmarrePorMes().compareTo(nuevo.costoDeAmarrePorMes());
+	}
 	
-
 }

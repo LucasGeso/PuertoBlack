@@ -1,7 +1,7 @@
 package unlam.edu.ar.pb2;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Fondeadero{
 	
@@ -9,7 +9,7 @@ public class Fondeadero{
 	private Integer cantidadDeAmarres;
 	
 	public Fondeadero(Integer amarres) {
-		this.yates = new HashSet<Yate>();
+		this.yates = new TreeSet<Yate>();
 		this.cantidadDeAmarres = amarres;
 	}
 	
@@ -52,4 +52,10 @@ public class Fondeadero{
 		}*/
 		return importeTotal;
 	}
+
+	public Set<Yate> getYates() {
+		return yates;
+	}
+	
+
 }
