@@ -1,7 +1,11 @@
 package unlam.edu.ar.pb2;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
 
 public class Fondeadero{
 	
@@ -18,13 +22,12 @@ public class Fondeadero{
 	}
 	
 	public boolean amarrarYate(Yate yate) {
-		if(this.yates.size()<this.cantidadDeAmarres && !this.yates.contains(yate)) {
-			this.yates.add(yate);
+		if(yates.size()<cantidadDeAmarres && !yates.contains(yate)) {
+			yates.add(yate);
 			return true;
 		}
 		return false;
-		
-	}
+		} 
 	
 	public boolean desamarrarYate(Yate yate) {
 		return yates.remove(yate);
@@ -55,6 +58,12 @@ public class Fondeadero{
 
 	public Set<Yate> getYates() {
 		return yates;
+	}
+	
+	public List<Yate> ordenarYatesPorPeso(){
+		List<Yate> ordenado = new ArrayList<Yate>(this.yates);
+		Collections.sort(ordenado, new ordenadoPorPeso());
+		return ordenado;
 	}
 	
 

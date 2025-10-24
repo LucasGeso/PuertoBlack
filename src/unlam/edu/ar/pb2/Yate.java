@@ -34,10 +34,20 @@ abstract class Yate implements Comparable<Yate> {
 	}
 	
 	public abstract Integer costoDeAmarrePorMes();
+	
+	
+
+	public Double getPeso() {
+		return peso;
+	}
+	
+	public Double getEslora() {
+		return eslora;
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(calado, eslora, manga, nombre, nombreDuenio, peso, tripulacion);
+		return Objects.hash(eslora, nombre, peso);
 	}
 
 	@Override
@@ -49,15 +59,20 @@ abstract class Yate implements Comparable<Yate> {
 		if (getClass() != obj.getClass())
 			return false;
 		Yate other = (Yate) obj;
-		return Objects.equals(calado, other.calado) && Objects.equals(eslora, other.eslora)
-				&& Objects.equals(manga, other.manga) && Objects.equals(nombre, other.nombre)
-				&& Objects.equals(nombreDuenio, other.nombreDuenio) && Objects.equals(peso, other.peso)
-				&& Objects.equals(tripulacion, other.tripulacion);
+		return Objects.equals(eslora, other.eslora) && Objects.equals(nombre, other.nombre)
+				&& Objects.equals(peso, other.peso);
 	}
 
 	@Override
 	public int compareTo(Yate nuevo) {
-		return this.costoDeAmarrePorMes().compareTo(nuevo.costoDeAmarrePorMes());
+		return this.getEslora().compareTo(nuevo.getEslora());
 	}
+
+	@Override
+	public String toString() {
+		return "Yate [nombre=" + nombre + ", eslora=" + eslora + ", peso=" + peso + "]";
+	}
+	
+	
 	
 }
