@@ -55,6 +55,7 @@ abstract class Yate implements Comparable<Yate> {
 				&& Objects.equals(tripulacion, other.tripulacion);
 	}
 
+	@Override
 	public int compareTo(Yate nuevo) {
 		return this.costoDeAmarrePorMes().compareTo(nuevo.costoDeAmarrePorMes());
 	}
